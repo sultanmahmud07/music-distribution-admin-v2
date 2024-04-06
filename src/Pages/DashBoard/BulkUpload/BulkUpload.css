@@ -1,0 +1,70 @@
+.file-upload-container {
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.file-upload-container.dragging {
+  border-color: #aaa;
+}
+
+.file-upload-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-upload-text span {
+  margin-top: 10px;
+}
+
+.file-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Add this line to align items properly */
+}
+
+.file-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.file-icon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-actions {
+  margin-top: 10px; /* Add margin to separate buttons from file details */
+}
+
+.remove-file-button,
+.upload-button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-file-button:hover,
+.upload-button:hover {
+  background-color: #0056b3;
+}
