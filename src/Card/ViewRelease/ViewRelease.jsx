@@ -4,13 +4,17 @@ import { useParams } from "react-router-dom";
 import BASEURL from "../../../Constants";
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { useNavigate, useRouteError } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import ShowDetailsRelease from "./ShowDetailsRelease/ShowDetailsRelease";
+import ShowEditRelease from "./ShowEditRelease/ShowEditRelease";
 
 const ViewRelease = () => {
   const { id } = useParams();
   const [isRejecting, setIsRejecting] = useState(false);
   const [reason, setReason] = useState("");
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [showEdit, setShowEdit] = useState(false); // State to manage showing edit mode
+  
   const navigate = useNavigate();
   const {
     data: singleSongData,
@@ -49,8 +53,9 @@ const ViewRelease = () => {
     }
     return response.data;
   };
+  
   const handleReject = () => {
-    setIsRejecting(!isRejecting); // Toggle isRejecting state
+    setIsRejecting(!isRejecting);
   };
 
   const handleReasonChange = (e) => {
@@ -65,8 +70,6 @@ const ViewRelease = () => {
   };
 
   const handleSubmitReject = async () => {
-    console.log("Reason for rejection:", reason);
-    console.log("Selected options:", selectedOptions);
     const response = await axios.patch(
       `${BASEURL}/admin/reject/${id}`,
       { note: reason },
@@ -84,23 +87,29 @@ const ViewRelease = () => {
       navigate("/inspection")
     }
     return response.data;
-    // Handle reject submission here
   };
  
   if (isLoading) {
     return <p>Loading....</p>;
   }
-  console.log(singleSongData);
+
   return (
     <div className="flex flex-col items-center mt-10">
       <h1 className="text-3xl font-bold mb-6">View Release</h1>
-      <h1 className="text-3xl font-bold mb-6 text-blue-600">{singleSongData?.data?.releaseTitle}</h1>
+      {showEdit ? (
+        <ShowEditRelease singleSongData={singleSongData} />
+      ) : (
+        <ShowDetailsRelease singleSongData={singleSongData} />
+      )}
       <div className="flex gap-4">
         <button className="btn bg-purple-500" onClick={handleApproved}>
           Approve
         </button>
         <button className="btn bg-red-500" onClick={handleReject}>
-          {isRejecting ? "Cancel" : "Reject"} {/* Toggle button text */}
+          {isRejecting ? "Cancel" : "Reject"}
+        </button>
+        <button className="btn bg-yellow-500" onClick={() => setShowEdit(true)}>
+          Edit
         </button>
       </div>
       {isRejecting && (
