@@ -45,7 +45,7 @@ const ShowDetailsRelease = ({ singleSongData }) => {
   } = singleSongData?.data;
 
   return (
-    <div className="grid grid-cols-2 view-release-main">
+    <div className="grid grid-cols-2 view-release-main bg-white w-full p-5 mb-5">
       <p>
         <span className="font-bold">Primary Track Type:</span> {trackType}
       </p>
