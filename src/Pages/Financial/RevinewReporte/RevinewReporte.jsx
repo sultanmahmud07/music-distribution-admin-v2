@@ -25,7 +25,7 @@ const RevinewReporte = () => {
   if(isLoading){
     return <p>Loading...</p>
   }
-  console.log(financialData, "financialData");
+  // console.log(financialData, "financialData");
   return (
     <div className="">
       <div className="top_item flex items-center justify-end gap-5">
@@ -55,11 +55,11 @@ const RevinewReporte = () => {
      <div className=" grid grid-cols-2 gap-6 mt-10">
         <div className="shadow flex-col flex justify-center gap-3 py-7 rounded p-5">
           <p className="text-sm">Total Approved</p>
-          <h4 className="text-3xl font-bold text-[#3D6745]">$150.00</h4>
+          <h4 className="text-3xl font-bold text-[#3D6745]">$ {financialData?.data?.totalApproved}.00</h4>
         </div>
         <div className="shadow flex-col flex justify-center gap-3 py-7 rounded p-5">
           <p className="text-sm">Total Not Approved</p>
-          <h4 className="text-3xl font-bold text-[#3D6745]">$0.00</h4>
+          <h4 className="text-3xl font-bold text-[#3D6745]">$ {financialData?.data?.totalPending}.00</h4>
         </div>
       </div>
      </div>

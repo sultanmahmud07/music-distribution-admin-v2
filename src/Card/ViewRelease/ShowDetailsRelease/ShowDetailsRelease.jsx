@@ -80,34 +80,34 @@ const ShowDetailsRelease = ({ singleSongData }) => {
       </p>
       <p>
         <span className="font-bold">Primary Artist: </span>
-        {primaryArtist.map((item, index) => (
-          <span key={index}>{item.primaryArtistName}</span>
+        {primaryArtist?.map((item, index) => (
+          <span key={index}>{item?.primaryArtistName}</span>
         ))}
       </p>
 
       <p>
         <span className="font-bold">Writer: </span>
-        {writer.map((item, index) => (
-          <span key={index}>{item.writerName}</span>
+        {writer?.map((item, index) => (
+          <span key={index}>{item?.writerName}</span>
         ))}
       </p>
 
       <p>
         <span className="font-bold">Composer: </span>
-        {composer.map((item, index) => (
+        {composer?.map((item, index) => (
           <span key={index}>{item.composerName}</span>
         ))}
       </p>
 
       <p>
         <span className="font-bold">Music Derector: </span>
-        {musicDirector.map((item, index) => (
+        {musicDirector?.map((item, index) => (
           <span key={index}>{item.musicDirectorName}</span>
         ))}
       </p>
       <p>
         <span className="font-bold">Producer: </span>{" "}
-        {producer.map((item, index) => (
+        {producer?.map((item, index) => (
           <span key={index}>{item.producerName}</span>
         ))}
       </p>

@@ -25,7 +25,7 @@ const RoyaltiseTopReporte = () => {
   // console.log(totalPayment);
   return (
     <div className="">
-      <div className="top_item flex items-center justify-end gap-5">
+      {/* <div className="top_item flex items-center justify-end gap-5">
         <label className="input input-bordered flex items-center gap-2">
           <input type="text" className="grow" placeholder="Search" />
           <svg
@@ -45,7 +45,7 @@ const RoyaltiseTopReporte = () => {
           <option selected>Report Month (Dec 23 - Jul 24)</option>
           <option>Game of Thrones</option>
         </select>
-      </div>
+      </div> */}
       <div className="bg-white p-5 rounded-md shadow-md mt-6">
         <div className=" grid grid-cols-2 gap-6 mt-10">
           <div className="shadow flex-col flex justify-center gap-3 py-7 rounded p-5">
