@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineDollar } from "react-icons/ai";
 import PaymentModal from "./PaymentModal/PaymentModal";
 
-const ToPayCard = ({ paymentData }) => {
+const ToPayCard = ({ paymentData, refetch }) => {
   const {name, email, balance, _id, createdAt, isVerified, note} = paymentData;
   console.log(paymentData);
   const [toPayOpen, setToPayOpen] = useState(null);
@@ -65,6 +65,7 @@ const ToPayCard = ({ paymentData }) => {
       </div>
       {toPayOpen && (
         <PaymentModal
+        refetch={refetch}
           closeModal={cencelModal}
           successAction={handlePaySuccess}
           paymentData={paymentData}

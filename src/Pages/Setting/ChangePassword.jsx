@@ -14,7 +14,7 @@ const ChangePassword = () => {
   const [showPassword1, setShowPassword1] = useState(false);
   const [showPassword2, setShowPassword2] = useState(false);
   const [showPassword3, setShowPassword3] = useState(false);
-  const id = localStorage.getItem("user_id");
+  const id = localStorage.getItem("admin_id");
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -49,7 +49,7 @@ const ChangePassword = () => {
     }
     console.log(data);
     try {
-      const response = await axios.patch(`${BASEURL}/user/change-password/${id}`, data,
+      const response = await axios.patch(`${BASEURL}/admin/change-password/${id}`, data,
       {
         headers: {
           Accept: "application/json",
@@ -118,7 +118,7 @@ const ChangePassword = () => {
           </div>
         </label>
       </div>
-      {/* <div>
+      <div>
         <label className="form-control w-full">
           <div className="label">
             <span className="label-text-alt">New Password</span>
@@ -146,8 +146,8 @@ const ChangePassword = () => {
             )}
           </div>
         </label>
-      </div> */}
-      <div>
+      </div>
+      {/* <div>
         <label className="form-control w-full">
           <div className="label">
             <span className="label-text-alt">Confirm Password</span>
@@ -175,7 +175,7 @@ const ChangePassword = () => {
             )}
           </div>
         </label>
-      </div>
+      </div> */}
       <div className="text-end">
         <button type="submit" className="pass-change-btn">
           Submit

@@ -13,6 +13,7 @@ const PaymentModal = ({
   successAction,
   modalData,
   paymentData,
+  refetch
 }) => {
   console.log(paymentData);
   const [startDate, setStartDate] = useState(new Date());
@@ -24,6 +25,7 @@ const PaymentModal = ({
   const [vendorId, setVendorId] = useState("");
   const [associatedContact, setAssociatedContact] = useState("");
   const [memo, setMemo] = useState("");
+  const [isLoading, setIsLoading] = useState(false)
 
   const data = {
     transactionType,
@@ -42,6 +44,7 @@ const PaymentModal = ({
   };
   const handlePayment = async () => {
     // console.log(data);
+    setIsLoading(true)
     try {
       const response = await axios.post(`${BASEURL}/admin/add-payment`, data, {
         headers: {
@@ -54,10 +57,13 @@ const PaymentModal = ({
       if (response?.data?.statusCode === 200) {
         toast.success("Payment Successful");
         successAction(modalData);
+        refetch()
+        setIsLoading(false)
       }
       return response.data;
     } catch (error) {
       console.error("Error posting payment:", error);
+      setIsLoading(false)
       throw error; // Rethrow the error for handling in the calling code
     }
   };
@@ -189,13 +195,23 @@ const PaymentModal = ({
             >
               Cancel
             </button>
-            <button
-              onClick={handlePayment}
-              type="button"
-              className="btn btn-sm bg-green-600 text-white btn-success flex items-center gap-1"
-            >
-              Send Payment
-            </button>
+        {
+          isLoading ?
+          <button
+          type="button"
+          className="btn btn-sm bg-green-600 cursor-wait text-white btn-success flex items-center gap-1"
+        >
+        Payment Sending..
+        </button>
+        :
+        <button
+        onClick={handlePayment}
+        type="button"
+        className="btn btn-sm bg-green-600 text-white btn-success flex items-center gap-1"
+      >
+        Send Payment
+      </button>
+        }
           </div>
         </div>
       </div>

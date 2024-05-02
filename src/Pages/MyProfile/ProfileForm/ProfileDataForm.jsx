@@ -27,20 +27,18 @@ const ProfileDataForm = ({ ProfileInfo, setUpdate, handleProfileInfoAdd }) => {
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
-        const age = form.age.value;
-        const gender = form.gender.value;
-        // const phoneNum = form.phoneNum.value;
         const parsonalNum = form.parsonalNum.value;
-        const nid = form.nid.value;
-        const permanentAdd = form.permanentAdd.value;
+        // const age = form.age.value;
+        // const gender = form.gender.value;
+        // const nid = form.nid.value;
+        // const permanentAdd = form.permanentAdd.value;
         const adminInfo = {
             name,
-            nid,
-            age,
-            gender,
-            phone: parsonalNum,
-            address: permanentAdd,
-            // image: "https://t3.ftcdn.net/jpg/02/00/90/24/360_F_200902415_G4eZ9Ok3Ypd4SZZKjc8nqJyFVp1eOD6V.jpg"
+            phoneNumber: parsonalNum,
+            // nid,
+            // age,
+            // gender,
+            // address: permanentAdd
         }
         handleProfileInfoAdd(adminInfo)
 
@@ -80,21 +78,9 @@ const ProfileDataForm = ({ ProfileInfo, setUpdate, handleProfileInfoAdd }) => {
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
-                                <span className="label-text">NID (Number)</span>
-                            </label>
-                            <input name='nid' defaultValue={nid} type="number" placeholder="enter your nid number" className="input input-sm   input-bordered w-full" />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
                                 <span className="label-text">Phone Number (parsonal)</span>
                             </label>
                             <input name='parsonalNum' defaultValue={phone} type="number" placeholder="enter your number" className="input input-sm   input-bordered w-full" />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Age</span>
-                            </label>
-                            <input name='age' defaultValue={age} type="number" placeholder="enter your number" className="input input-sm   input-bordered w-full" />
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
@@ -106,12 +92,24 @@ const ProfileDataForm = ({ ProfileInfo, setUpdate, handleProfileInfoAdd }) => {
 
                             </select>
                         </div>
+                        {/* <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">NID (Number)</span>
+                            </label>
+                            <input name='nid' defaultValue={nid} type="number" placeholder="enter your nid number" className="input input-sm   input-bordered w-full" />
+                        </div>
+                        <div className="form-control w-full">
+                            <label className="label">
+                                <span className="label-text">Age</span>
+                            </label>
+                            <input name='age' defaultValue={age} type="number" placeholder="enter your number" className="input input-sm   input-bordered w-full" />
+                        </div>
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Address</span>
                             </label>
                             <input name='permanentAdd' defaultValue={address} type="text" placeholder="address" className="input input-sm   input-bordered w-full" />
-                        </div>
+                        </div> */}
                         {/* <div className="form-control w-full">
                             <div className="flex items-center justify-center">
                                 <input
@@ -150,8 +148,8 @@ const ProfileDataForm = ({ ProfileInfo, setUpdate, handleProfileInfoAdd }) => {
                 </div>
                 <div className=" w-full flex justify-end top_border mt-6">
                     <div className="flex w-full md:w-1/4 gap-6 my-10">
-                        <button type='button' onClick={handleClose} className='profile_close_btn px-6 py-2'>Close</button>
-                        <input className="profile_save_btn px-6 py-2" type="submit" value="Save"></input>
+                        <button type='button' onClick={handleClose} className='profile_close_btn border border-warning rounded text-warning px-6 py-2'>Close</button>
+                        <input className="profile_save_btn bg-green-600 cursor-pointer text-white rounded-md px-6 py-2" type="submit" value="Save"></input>
                     </div>
                 </div>
             </div>

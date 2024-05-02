@@ -2,6 +2,7 @@ import React from "react";
 import { HiDotsVertical } from "react-icons/hi";
 
 const TrackCard = ({ track }) => {
+  // console.log(track);
   return (
     <div className="top_title bg-white p-2 items-center grid grid-cols-8 rounded-sm text-sm shadow">
       <div className="col-span-2 flex items-center gap-2">
@@ -15,13 +16,17 @@ const TrackCard = ({ track }) => {
       <div className="col-span-6 grid grid-cols-4">
         <span className="">{track?.releaseId ? track?.releaseId : "N/A"}</span>
         <span className="">
-          {" "}
-          {track?.primaryArtist?.map((artist, index) => (
+         {
+           track?.primaryArtist[0]?._id  ?
+          track?.primaryArtist?.map((artist, index) => (
             <React.Fragment key={index}>
               {artist?.primaryArtistName}
               <br />
             </React.Fragment>
-          ))}
+          ))
+          :
+          track?.primaryArtistName
+         }
         </span>
         <span className="">{track?.isrc}</span>
         <div className="flex items-center justify-between gap-1">

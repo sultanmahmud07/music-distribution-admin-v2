@@ -39,7 +39,7 @@ const ToPay = () => {
         {getUserForPayment?.data?.allUsers.length > 0 ? (
           <div className="client_container flex flex-col gap-2 mt-2">
             {getUserForPayment?.data?.allUsers?.map((paymentData, i) => {
-              return <ToPayCard key={i} paymentData={paymentData}></ToPayCard>;
+              return <ToPayCard key={i} refetch={refetch} paymentData={paymentData}></ToPayCard>;
             })}
           </div>
         ) : (

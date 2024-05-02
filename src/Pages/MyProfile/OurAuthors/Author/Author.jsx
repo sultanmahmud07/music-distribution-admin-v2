@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {  ImUserMinus } from 'react-icons/im';
 
 const Author = ({ data }) => {
-    const { index, email, gender, phone, name, image, address } = data;
+    const {  email, gender, phone, name, image, address } = data;
     // console.log(data)
     return (
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 w-full bg-white p-2 shadow rounded-lg">
@@ -28,7 +28,7 @@ const Author = ({ data }) => {
             <div className="lg:col-span-4 lg:mt-2">
                 <div className="grid grid-cols-3 w-full">
                     <div className="flex items-center">
-                    <span className='text-gray-600 text-sm font-semibold'>{phone ? `${phone}` : "No number set"}</span>
+                    <span className='text-gray-600 text-sm font-semibold'>{phone ? `${phone}` : "N/A"}</span>
                     </div>
                     {/* <div className="flex items-center">
                     <span className='text-gray-600 text-sm font-semibold'>{gender ? `${gender}` : "No gender set"}</span>

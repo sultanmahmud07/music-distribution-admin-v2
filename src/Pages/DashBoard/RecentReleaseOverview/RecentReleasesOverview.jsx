@@ -6,30 +6,55 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaUserCheck } from "react-icons/fa";
 import musicImg from "../../../assets/clients/music-cover.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import BASEURL from "../../../../Constants";
+import Loader from "../../Shared/Loader/Loader";
 
 const RecentReleasesOverview = () => {
-  const data = [
-    {
-      id: 1,
+  // const data = [
+  //   {
+  //     id: 1,
+  //   },
+  //   {
+  //     id: 1,
+  //   },
+  //   {
+  //     id: 1,
+  //   },
+  //   {
+  //     id: 1,
+  //   },
+  //   {
+  //     id: 1,
+  //   },
+  // ];
+  const {
+    data: latestRelease,
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["latestRelease"],
+    queryFn: async () => {
+      const response = await axios.get(`${BASEURL}/admin/latest-release`, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("token"),
+        },
+      });
+      return response.data;
     },
-    {
-      id: 1,
-    },
-    {
-      id: 1,
-    },
-    {
-      id: 1,
-    },
-    {
-      id: 1,
-    },
-  ];
+  });
+  if(isLoading){
+    return<Loader></Loader>
+  }
+  console.log(latestRelease?.data);
   return (
     <div className="my-5 bg-white p-5 rounded-md shadow-md">
       <h4 className="text-black font-bold  mb-4">Latest Releases</h4>
       <div className="grid grid-cols-5 gap-5">
-        {data.map((item, i) => {
+        {latestRelease?.data?.map((item, i) => {
           return (
             <div key={i} className=" font-semibold text-black relative">
               <div className="dropdown dropdown-bottom dropdown-end absolute top-3 text-white left-2">
@@ -69,16 +94,16 @@ const RecentReleasesOverview = () => {
               <div className="w-full rounded-xl">
                 <img
                   className="w-full rounded-xl"
-                  src={musicImg}
+                  src={item?.image}
                   alt="music-img"
                 />
               </div>
-              <p>Breath me</p>
+              <p>{item?.releaseTitle}</p>
               <p className="text-xs flex items-center gap-1 text-gray-400">
                 <span>
                   <FaRegDotCircle />
                 </span>
-                <span>Sia</span>
+                <span>{item?.releaseDate}</span>
               </p>
             </div>
           );

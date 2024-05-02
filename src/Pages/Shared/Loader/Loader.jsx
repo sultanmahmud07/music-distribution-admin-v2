@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bars, Dna, FallingLines, Radio } from 'react-loader-spinner'
+import { Bars } from 'react-loader-spinner'
 
 const Loader = () => {
     return (
@@ -30,7 +30,7 @@ const Loader = () => {
             <Bars
                 height="80"
                 width="80"
-                color="#44A0D8"
+                color="#239930"
                 ariaLabel="bars-loading"
                 wrapperStyle={{}}
                 wrapperClass=""

@@ -52,7 +52,7 @@ const admin_id = localStorage.getItem("admin_id")
   formData.append('data', JSON.stringify(adminInfo));
   console.log(formData)
     try {
-      const response = await axios.patch(`${BASEURL}/admin/profile/${localStorage.getItem("admin_id")}`, formData, {
+      const response = await axios.patch(`${BASEURL}/admin/edit-profile/${localStorage.getItem("admin_id")}`, formData, {
         headers: {
           Authorization:  localStorage.getItem("token")
         }
@@ -75,13 +75,13 @@ const admin_id = localStorage.getItem("admin_id")
       // }
       const formData = new FormData();
       if (selectedImage) {
-        formData.append('images', selectedImage);
+        formData.append('image', selectedImage);
        
       }
     // formData.append('data', JSON.stringify(data));
     // console.log(formData)
       try {
-        const response = await axios.patch(`${BASEURL}/admin/profile/${localStorage.getItem("admin_id")}`, formData, {
+        const response = await axios.patch(`${BASEURL}/admin/edit-profile/${localStorage.getItem("admin_id")}`, formData, {
           headers: {
             Authorization:  localStorage.getItem("token")
           }
@@ -193,7 +193,7 @@ const admin_id = localStorage.getItem("admin_id")
                   <span className="absolute top-[-50px] right-8">{
                     update && <button onClick={hendleEdit} className="btn btn-outline btn-info btn-sm">Edit</button>
                   }</span>
-                  <p className="text-gray-600"><span className="font-semibold">Phone:</span>  {profileData?.data?.phone}</p>
+                  <p className="text-gray-600"><span className="font-semibold">Phone:</span>  {profileData?.data?.phoneNumber ? `${profileData?.data?.phoneNumber}` : "N/A"}</p>
             <p className="text-gray-600"><span className="font-semibold">Email:</span> {profileData?.data?.email}</p>
                 </div>
               </div>

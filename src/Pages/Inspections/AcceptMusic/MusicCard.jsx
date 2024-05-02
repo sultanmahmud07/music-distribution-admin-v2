@@ -56,7 +56,7 @@ const MusicCard = ({ song }) => {
     songStatus,
     createdAt,
   } = song;
-
+console.log(song);
   return (
     <div className="top_title bg-white p-2 items-center grid grid-cols-8 rounded-sm text-sm shadow">
       <div className="col-span-2 flex items-center gap-2">

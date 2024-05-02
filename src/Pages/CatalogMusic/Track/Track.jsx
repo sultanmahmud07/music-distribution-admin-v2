@@ -3,6 +3,7 @@ import TrackCard from "./TrackCard";
 import axios from "axios";
 import BASEURL from "../../../../Constants";
 import { useQuery } from "@tanstack/react-query";
+import Loader from "../../Shared/Loader/Loader";
 
 const Track = () => {
   const {
@@ -22,6 +23,10 @@ const Track = () => {
       return response.data;
     },
   });
+  // console.log(trackData?.data);
+  if(isLoading){
+    return<Loader></Loader>
+  }
   return (
     <div className="p-4 bg-white rounded-md shadow">
       <div className="ll">
@@ -36,6 +41,7 @@ const Track = () => {
         </div>
         <div className="client_container flex flex-col gap-2 mt-2">
           {trackData?.data?.map((track, i) => {
+            // console.log(track?.primaryArtist);
             return <TrackCard key={i} track={track}></TrackCard>;
           })}
         </div>
