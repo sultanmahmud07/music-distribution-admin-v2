@@ -155,7 +155,7 @@ const NewInspectManage = () => {
             <img
               className="w-full rounded shadow"
               src={
-                !singleSongData?.data?.image
+                singleSongData?.data?.image
                   ? singleSongData?.data?.image
                   : "https://img.freepik.com/premium-photo/music-background-with-heart-notes_476363-3388.jpg"
               }
