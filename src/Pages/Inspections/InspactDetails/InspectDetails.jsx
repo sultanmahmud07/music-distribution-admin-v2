@@ -9,10 +9,10 @@ const InspectDetails = () => {
     <div className="bg-white mt-5">
       {/* ----------------------inspect-section------------------------ */}
       <div className="inspect-details-main">
-        <h1 className="uppercase py-10">inspect</h1>
+        <h1 className="uppercase text-3xl font-bold py-10">inspect</h1>
       </div>
       {/* ----------------------account-owner-section------------------------ */}
-      <div className="grid grid-cols-3 gap-5 py-10">
+      <div className="grid grid-cols-3 gap-5 py-10 p-5 rounded shadow-md">
         <div className="col-span-1">
           <img src={image} alt="" />
         </div>

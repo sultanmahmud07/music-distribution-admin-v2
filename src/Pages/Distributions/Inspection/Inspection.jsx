@@ -24,7 +24,7 @@ const Inspection = () => {
   if(isLoading){
     return <p>Loading...</p>
   }
-  console.log(inspectionData, "inspectionData");
+  // console.log(inspectionData, "inspectionData");
   return (
     <div className="p-4 bg-white rounded-md shadow">
       <div className="ll">

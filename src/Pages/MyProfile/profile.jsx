@@ -9,6 +9,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from 'axios';
 import adminProfileImg from "../../assets/profile/admin-profile-img.jpg"
 import BASEURL from "../../../Constants";
+import Loader from "../Shared/Loader/Loader";
+
 const Profile = () => {
   const [update, setUpdate] = useState(true)
   const [selectedImage, setSelectedImage] = useState(null);
@@ -104,13 +106,11 @@ const admin_id = localStorage.getItem("admin_id")
     }, [previewImage])
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <Loader></Loader>
   }
   console.log(profileData?.data)
   return (
-    <>
-      {profileData?.data &&
-        <div className="">
+    <div className="">
           <div className="bg-white rounded-xl mt-3">
             <div className="profile_cover_img relative" style={{
               backgroundImage: `url(${cover})`,
@@ -210,8 +210,6 @@ const admin_id = localStorage.getItem("admin_id")
               ></ProfileDataForm>
           }
         </div>
-      }
-    </>
     // <p>hello</p>
   )
 }

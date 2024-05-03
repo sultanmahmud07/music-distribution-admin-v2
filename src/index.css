@@ -578,8 +578,7 @@ li.active a::after {
 }
 .view-release-main p{
   padding: 10px;
-  box-shadow: 0 0 5px #3F51B5;
-  margin: 10px;
+  /* box-shadow: 0 0 5px #3F51B5; */
   border-radius: 5px;
 }
 /*============================Author Data section start======================= */

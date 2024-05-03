@@ -13,7 +13,7 @@ import adminProfileImg from "../../../src/assets/profile/admin-profile-img.jpg";
 const Navber = () => {
   const [authenticated, setAuthenticated] = useState("");
   const token = localStorage.getItem("token");
-  const id = localStorage.getItem("user_id");
+  const id = localStorage.getItem("admin_id");
   const navigate = useNavigate();
 
   // <<<<<<<<< Profile info Data Recived >>>>>>>>>>
@@ -21,7 +21,7 @@ const Navber = () => {
     queryKey: ["profileData"],
     queryFn: async () => {
       try {
-        const response = await axios.get(`${BASEURL}/user/profile/${id}`, {
+        const response = await axios.get(`${BASEURL}/admin/me/${id}`, {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",

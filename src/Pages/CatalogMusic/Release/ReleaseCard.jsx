@@ -1,5 +1,9 @@
 import React from "react";
 import { HiDotsVertical } from "react-icons/hi";
+import { LuPencil } from "react-icons/lu";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { FaUserCheck } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ReleaseCard = ({ music }) => {
   if (!music) {
@@ -36,16 +40,34 @@ const ReleaseCard = ({ music }) => {
               <HiDotsVertical />
             </div>
             <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-            </ul>
+                tabIndex={0}
+                className="dropdown-content z-[1] flex flex-col p-2 shadow bg-white rounded w-52"
+              >
+                 <Link to={`/inspection/${music?._id}`}>
+                <li className="flex hover:bg-green-100 text-[#8774F9] items-center gap-2 cursor-pointer p-2 ">
+                  <span>
+                    <LuPencil />
+                  </span>
+                  <a>Inspect</a>
+                </li>
+                </Link>
+                <Link to={`/view-release/${music?._id}`}>
+                <li className="flex hover:bg-green-100 text-[#36C893] items-center gap-2 cursor-pointer p-2 ">
+                  <span>
+                    <MdOutlineRemoveRedEye />
+                  </span>
+                  <a>View Release</a>
+                </li>
+                </Link>
+                <Link to={`/client/${music?.user?._id}`}>
+                  <li className="flex hover:bg-green-100 text-[#F38B2A] items-center gap-2 cursor-pointer p-2 ">
+                    <span>
+                      <FaUserCheck />
+                    </span>
+                    <a>Go To Client Page</a>
+                  </li>
+                </Link>
+              </ul>
           </div>
         </div>
       </div>

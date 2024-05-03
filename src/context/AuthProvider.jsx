@@ -7,7 +7,7 @@ export const AuthContext = createContext();
 
 
 const AuthProvider = ({ children }) => {
-  const id = localStorage.getItem("user_id");
+  const id = localStorage.getItem("admin_id");
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null)
     const [loading, setLoading] =useState(true);
@@ -18,7 +18,7 @@ const { data: userData = [], isLoading } = useQuery({
   queryKey: ["userData"],
   queryFn: async () => {
     try {
-      const response = await axios.get(`${BASEURL}/user/profile/${id}`, {
+      const response = await axios.get(`${BASEURL}/admin/me/${id}`, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

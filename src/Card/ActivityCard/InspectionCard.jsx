@@ -1,6 +1,9 @@
 import React from "react";
 import { HiDotsVertical } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { LuPencil } from "react-icons/lu";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { FaUserCheck } from "react-icons/fa";
 
 const InspectionCard = ({ music }) => {
   if (!music) {
@@ -33,7 +36,7 @@ const InspectionCard = ({ music }) => {
         <span className="">{music?.upcEan}</span>
         <div className="flex items-center justify-between gap-1">
           <span className="">{music?.releaseDate}</span>
-          <div className="dropdown dropdown-bottom dropdown-end">
+          {/* <div className="dropdown dropdown-bottom dropdown-end">
             <div tabIndex={0} role="button" className="m-1 font-bold text-xl">
               <HiDotsVertical />
             </div>
@@ -45,10 +48,51 @@ const InspectionCard = ({ music }) => {
                 <a href={`/client/${music?.user}`}>Go To Client Page</a>
               </li>
               <li>
-                <Link to={`/inspection/${music?._id}`}>View Release</Link>
+                <Link to={`/inspection/${music?._id}`}>Inspection</Link>
+              </li>
+              <li>
+                <Link to={`/view-release/${music?._id}`}>View Release</Link>
               </li>
             </ul>
-          </div>
+          </div> */}
+          <div className="dropdown dropdown-bottom dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="m-1 font-bold text-xl"
+              >
+                <HiDotsVertical />
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] flex flex-col p-2 shadow bg-white rounded w-52"
+              >
+                 <Link to={`/inspection/${music?._id}`}>
+                <li className="flex hover:bg-green-100 text-[#8774F9] items-center gap-2 cursor-pointer p-2 ">
+                  <span>
+                    <LuPencil />
+                  </span>
+                  <a>Inspect</a>
+                </li>
+                </Link>
+                <Link to={`/view-release/${music?._id}`}>
+                <li className="flex hover:bg-green-100 text-[#36C893] items-center gap-2 cursor-pointer p-2 ">
+                  <span>
+                    <MdOutlineRemoveRedEye />
+                  </span>
+                  <a>View Release</a>
+                </li>
+                </Link>
+                <Link to={`/client/${music?.user?._id}`}>
+                  <li className="flex hover:bg-green-100 text-[#F38B2A] items-center gap-2 cursor-pointer p-2 ">
+                    <span>
+                      <FaUserCheck />
+                    </span>
+                    <a>Go To Client Page</a>
+                  </li>
+                </Link>
+              </ul>
+            </div>
         </div>
       </div>
     </div>

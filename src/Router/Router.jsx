@@ -19,6 +19,7 @@ import Royaltise from "../Pages/Royaltise/Royaltise";
 import InspectDetails from "../Pages/Inspections/InspactDetails/InspectDetails";
 import ViewRelease from "../Card/ViewRelease/ViewRelease";
 import Profile from "../Pages/MyProfile/profile";
+import NewInspectManage from "../Pages/Inspections/NewInspectManage/NewInspectManage";
 
 const router = createBrowserRouter([
   {
@@ -87,18 +88,11 @@ const router = createBrowserRouter([
         path: "/inspection/:id",
         element: (
           <PrivateRoute>
-            <ViewRelease></ViewRelease>
+            <NewInspectManage></NewInspectManage>
+            {/* <InspectDetails></InspectDetails> */}
           </PrivateRoute>
         ),
       },
-      // {
-      //   path: "/inspection/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <InspectDetails></InspectDetails>
-      //     </PrivateRoute>
-      //   ),
-      // },
       {
         path: "/view-release/:id",
         element: (

@@ -30,7 +30,7 @@ const RecentReleases = ({ latestRelease, allSong }) => {
     <div className="my-10">
       <h4 className="text-black font-bold  my-4">Latest Releases</h4>
       {
-        latestRelease.length > 0 ?
+        latestRelease?.length > 0 ?
         
       <div className="grid grid-cols-5 gap-5">
       {latestRelease?.map((item, i) => {
